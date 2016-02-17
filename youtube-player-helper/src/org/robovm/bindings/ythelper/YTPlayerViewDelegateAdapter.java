@@ -1,6 +1,7 @@
 package org.robovm.bindings.ythelper;
 
 import org.robovm.apple.foundation.NSObject;
+import org.robovm.apple.uikit.UIColor;
 import org.robovm.objc.annotation.NotImplemented;
 
 public class YTPlayerViewDelegateAdapter extends NSObject implements YTPlayerViewDelegate{
@@ -27,6 +28,16 @@ public class YTPlayerViewDelegateAdapter extends NSObject implements YTPlayerVie
 	@NotImplemented("playerView:error:")
 	public void playerView(YTPlayerView playerView, YTPlayerError error) {
 		throw new UnsupportedOperationException();		
+	}
+
+	@Override
+	public void playerView(YTPlayerView playerView, float playTime) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public UIColor playerViewPreferredWebViewBackgroundColor(YTPlayerView playerView) {
+		throw new UnsupportedOperationException();
 	}
 
 }

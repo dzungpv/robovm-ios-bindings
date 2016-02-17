@@ -1,15 +1,16 @@
 package org.robovm.bindings.ythelper;
 
 import org.robovm.apple.foundation.NSObjectProtocol;
+import org.robovm.apple.uikit.UIColor;
 import org.robovm.objc.annotation.Method;
 
 /**
-* A delegate for ViewControllers to respond to YouTube player events outside
-* of the view, such as changes to video playback state or playback errors.
-* The callback functions correlate to the events fired by the JavaScript
-* API. For the full documentation, see the JavaScript documentation here:
-*     https://developers.google.com/youtube/js_api_reference#Events
-*/
+ * A delegate for ViewControllers to respond to YouTube player events outside
+ * of the view, such as changes to video playback state or playback errors.
+ * The callback functions correlate to the events fired by the JavaScript
+ * API. For the full documentation, see the JavaScript documentation here:
+ * https://developers.google.com/youtube/js_api_reference#Events
+ */
 
 public interface YTPlayerViewDelegate extends NSObjectProtocol{
 	
@@ -51,5 +52,24 @@ public interface YTPlayerViewDelegate extends NSObjectProtocol{
 	
 	@Method(selector = "playerView:error:")
 	public void playerView(YTPlayerView playerView, YTPlayerError error);
+
+	/**
+	 * Callback invoked frequently when playBack is plaing.
+	 *
+	 * @param playerView The YTPlayerView instance where the error has occurred.
+	 * @param playTime   float containing curretn playback time.
+	 */
+	@Method(selector = "playerView:playTime:")
+	public void playerView(YTPlayerView playerView, float playTime);
+
+
+	/**
+	 * Callback invoked when setting up the webview to allow custom colours so it fits in
+	 * with app color schemes. If a transparent view is required specify clearColor and
+	 * the code will handle the opacity etc.
+	 */
+	@Method(selector = "playerViewPreferredWebViewBackgroundColor:")
+	public UIColor playerViewPreferredWebViewBackgroundColor(YTPlayerView playerView);
+
 
 }

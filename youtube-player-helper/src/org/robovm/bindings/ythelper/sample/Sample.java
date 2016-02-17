@@ -10,11 +10,13 @@ import org.robovm.apple.uikit.UIWindow;
 
 public class Sample extends UIApplicationDelegateAdapter {
     private UIWindow window;
+    //private MyViewController myViewController;
     private SingleVideo yViewController;
 
     @Override
     public boolean didFinishLaunching (UIApplication application, UIApplicationLaunchOptions launchOptions) {
         // Set up the view controller.
+        //myViewController = new MyViewController();
         yViewController = new SingleVideo();
 
         // Create a new window at screen size.
